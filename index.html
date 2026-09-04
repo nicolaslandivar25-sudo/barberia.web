@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Cuts | Barbería en Guayaquil</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d0d0d;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* ================= MENU ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid #292929;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
+                url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero small {
+            color: #d4af37;
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #d4af37;
+            color: #000;
+            padding: 15px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        .boton-secundario {
+            display: inline-block;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+            transition: 0.3s;
+        }
+
+        .boton-secundario:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* ================= SECCIONES ================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo small {
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .titulo h2 {
+            font-size: 40px;
+            margin-top: 8px;
+        }
+
+        /* ================= SERVICIOS ================= */
+
+        .servicios {
+            background: #111;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: #1b1b1b;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid #292929;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .icono {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #d4af37;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta p {
+            color: #bbb;
+        }
+
+        .precio {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+
+        /* ================= GALERIA ================= */
+
+        .galeria {
+            background: #0d0d0d;
+        }
+
+        .fotos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .fotos img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .fotos img:hover {
+            transform: scale(1.03);
+        }
+
+        /* ================= SOBRE NOSOTROS ================= */
+
+        .sobre {
+            background: #111;
+            text-align: center;
+        }
+
+        .sobre-contenido {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .sobre p {
+            color: #bbb;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        /* ================= TESTIMONIOS ================= */
+
+        .testimonios {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .opinion {
+            background: #1b1b1b;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #292929;
+        }
+
+        .estrellas {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .opinion p {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .opinion h4 {
+            margin-top: 18px;
+            color: white;
+        }
+
+        /* ================= HORARIOS ================= */
+
+        .horarios {
+            background: #111;
+        }
+
+        .horario-box {
+            max-width: 650px;
+            margin: auto;
+            background: #1b1b1b;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .dia {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .dia:last-child {
+            border-bottom: none;
+        }
+
+        .dia span:last-child {
+            color: #d4af37;
+        }
+
+        /* ================= CONTACTO ================= */
+
+        .contacto {
+            text-align: center;
+            background:
+                linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+                url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contacto h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contacto p {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 30px 20px;
+            color: #777;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* ================= WHATSAPP ================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25d366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 28px;
+            z-index: 2000;
+            box-shadow: 0 5px 20px rgba(0,0,0,.5);
+        }
+
+        /* ================= CELULAR ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .boton-secundario {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+            .tarjetas,
+            .fotos,
+            .testimonios {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .titulo h2 {
+                font-size: 32px;
+            }
+
+            .fotos img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <nav>
+        <div class="logo">URBAN CUTS</div>
+
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#opiniones">Opiniones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- INICIO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <small>Barbería en Guayaquil</small>
+
+            <h1>Tu estilo.<br><span>Tu corte.</span></h1>
+
+            <p>
+                Cortes modernos, clásicos y estilos personalizados
+                para que salgas con tu mejor versión.
+            </p>
+
+            <a class="boton"
+               href="https://wa.me/593999999999"
+               target="_blank">
+                Reservar cita
+            </a>
+
+            <a class="boton-secundario" href="#servicios">
+                Ver servicios
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICIOS -->
+
+    <section class="servicios" id="servicios">
+
+        <div class="titulo">
+            <small>Lo que hacemos</small>
+            <h2>Nuestros servicios</h2>
+        </div>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <div class="icono">✂️</div>
+                <h3>Corte clásico</h3>
+                <p>
+                    Corte personalizado según tu estilo y tipo de cabello.
+                </p>
+                <div class="precio">$5</div>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">💈</div>
+                <h3>Corte + Barba</h3>
+                <p>
+                    Corte completo acompañado de arreglo y perfilado de barba.
+                </p>
+                <div class="precio">$8</div>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">🔥</div>
+                <h3>Diseño</h3>
+                <p>
+                    Diseños personalizados para darle un toque único a tu corte.
+                </p>
+                <div class="precio">$3</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERIA -->
+
+    <section class="galeria" id="galeria">
+
+        <div class="titulo">
+            <small>Nuestro trabajo</small>
+            <h2>Galería</h2>
+        </div>
+
+        <div class="fotos">
+
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80">
+
+            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80">
+
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80">
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+
+    <section class="sobre">
+
+        <div class="sobre-contenido">
+
+            <div class="titulo">
+                <small>Conócenos</small>
+                <h2>Más que un corte</h2>
+            </div>
+
+            <p>
+                En Urban Cuts nos enfocamos en ofrecer cortes de calidad,
+                atención personalizada y un ambiente cómodo para cada cliente.
+            </p>
+
+            <a class="boton"
+               href="https://wa.me/593999999999"
+               target="_blank">
+                Quiero reservar
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- OPINIONES -->
+
+    <section id="opiniones">
+
+        <div class="titulo">
+            <small>Clientes</small>
+            <h2>Lo que dicen</h2>
+        </div>
+
+        <div class="testimonios">
+
+            <div class="opinion">
+                <div class="estrellas">★★★★★</div>
+                <p>
+                    "Excelente atención y el corte quedó exactamente
+                    como lo quería."
+                </p>
+                <h4>— Carlos M.</h4>
+            </div>
+
+            <div class="opinion">
+                <div class="estrellas">★★★★★</div>
+                <p>
+                    "Buen ambiente, buenos precios y excelente trabajo."
+                </p>
+                <h4>— Mateo R.</h4>
+            </div>
+
+            <div class="opinion">
+                <div class="estrellas">★★★★★</div>
+                <p>
+                    "Desde que vine la primera vez siempre regreso."
+                </p>
+                <h4>— Diego P.</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HORARIOS -->
+
+    <section class="horarios">
+
+        <div class="titulo">
+            <small>Visítanos</small>
+            <h2>Horario de atención</h2>
+        </div>
+
+        <div class="horario-box">
+
+            <div class="dia">
+                <span>Lunes - Viernes</span>
+                <span>09:00 - 20:00</span>
+            </div>
+
+            <div class="dia">
+                <span>Sábado</span>
+                <span>09:00 - 21:00</span>
+            </div>
+
+            <div class="dia">
+                <span>Domingo</span>
+                <span>Cerrado</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section class="contacto" id="contacto">
+
+        <h2>¿Listo para tu próximo corte?</h2>
+
+        <p>
+            Reserva tu cita ahora y ven a conocer Urban Cuts.
+        </p>
+
+        <a class="boton"
+           href="https://wa.me/593999999999"
+           target="_blank">
+            📱 Reservar por WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            © 2026 <strong>Urban Cuts</strong> · Barbería Guayaquil
+        </p>
+
+        <p>
+            📍 Guayaquil, Ecuador · 📱 WhatsApp
+        </p>
+    </footer>
+
+
+    <!-- BOTON FLOTANTE -->
+
+    <a class="whatsapp"
+       href="https://wa.me/593999999999"
+       target="_blank"
+       title="Contactar por WhatsApp">
+        ☎
+    </a>
+
+</body>
+</html>
+
